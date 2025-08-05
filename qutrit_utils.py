@@ -109,8 +109,8 @@ class Q3_CNOT(cirq.Gate):
         leakage = 4*self.leakage_rate
 
         generator = np.zeros((6,6), dtype = complex)
-        generator[3][4] = 1j * np.arcsin(sqrt(leakage)) * np.exp(1j * self.leakage_phase)
-        generator[4][3] = -1j * np.arcsin(sqrt(leakage)) * np.exp(-1j * self.leakage_phase)
+        generator[3][4] = -1j * np.arcsin(sqrt(leakage)) * np.exp(1j * self.leakage_phase)
+        generator[4][3] = 1j * np.arcsin(sqrt(leakage)) * np.exp(-1j * self.leakage_phase)
 
         noisy_unitary = expm(1j * generator)
 
